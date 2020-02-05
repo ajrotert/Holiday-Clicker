@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+        <ProjectGuid>{8826CFA7-6670-423C-AD14-6F6377647D66}</ProjectGuid>
+        <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <TemplateGuid>{edc1b0fa-90cd-4038-8fad-98fe74adb368}</TemplateGuid>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>Hackathon</RootNamespace>
+        <AssemblyName>Hackathon</AssemblyName>
+        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+        <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+        <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchArch>x86_64</MtouchArch>
+        <MtouchLink>None</MtouchLink>
+        <MtouchDebug>true</MtouchDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchLink>None</MtouchLink>
+        <MtouchArch>x86_64</MtouchArch>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\iPhone\Debug</OutputPath>
+        <DefineConstants>DEBUG</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <MtouchArch>ARM64</MtouchArch>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+        <CodesignKey>iPhone Developer</CodesignKey>
+        <MtouchDebug>true</MtouchDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+        <DebugType>none</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\iPhone\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+        <MtouchArch>ARM64</MtouchArch>
+        <CodesignKey>iPhone Developer</CodesignKey>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="Xamarin.iOS" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Numerics.Vectors" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+      <PackageReference Include="sqlite-net-pcl">
+        <Version>1.6.292</Version>
+      </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+            <Visible>false</Visible>
+        </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_60.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_58.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_87.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_80.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_120.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_120-1.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_180.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_40-1.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_58-1.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_80-1.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_167.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_1024.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_20.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_29.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_76.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_152.png" />
+        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_40.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Resources\" />
+    </ItemGroup>
+    <ItemGroup>
+        <InterfaceDefinition Include="LaunchScreen.storyboard" />
+        <InterfaceDefinition Include="Main.storyboard" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Info.plist" />
+        <None Include="Entitlements.plist" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Main.cs" />
+        <Compile Include="AppDelegate.cs" />
+        <Compile Include="SceneDelegate.cs" />
+        <Compile Include="ViewController.cs" />
+        <Compile Include="ViewController.designer.cs">
+            <DependentUpon>ViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="SettingsViewController.cs" />
+        <Compile Include="SettingsViewController.designer.cs">
+          <DependentUpon>SettingsViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Database.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\Hammer.png" />
+      <BundleResource Include="Resources\HalloweenBKG.png" />
+      <BundleResource Include="Resources\Bat.png" />
+      <BundleResource Include="Resources\Present.png" />
+      <BundleResource Include="Resources\Turkey.png" />
+      <BundleResource Include="Resources\ThanksgivingBKG.png" />
+      <BundleResource Include="Resources\ChristmasBKG.png" />
+      <BundleResource Include="Resources\NewYearBKG.png" />
+      <BundleResource Include="Resources\FireworksNY.png" />
+      <BundleResource Include="Resources\ValentinesBKG.png" />
+      <BundleResource Include="Resources\Chocolates.png" />
+      <BundleResource Include="Resources\MemorialDayBKG.png" />
+      <BundleResource Include="Resources\Bunny.png" />
+      <BundleResource Include="Resources\EasterBKG.png" />
+      <BundleResource Include="Resources\Leprechaun.png" />
+      <BundleResource Include="Resources\STPatrickBKG.png" />
+      <BundleResource Include="Resources\BulletCase.png" />
+      <BundleResource Include="Resources\SummerBKG.png" />
+      <BundleResource Include="Resources\Sunglasses.png" />
+      <BundleResource Include="Resources\IndependenceDay.png" />
+      <BundleResource Include="Resources\Flag.png" />
+      <BundleResource Include="Resources\LaborDayBKG.png" />
+      <BundleResource Include="Resources\Bus.png" />
+      <BundleResource Include="Resources\BackToSchoolBKG.png" />
+      <BundleResource Include="Resources\LoadingLogo7COLLAB.png" />
+      <BundleResource Include="Resources\Settings.png" />
+      <BundleResource Include="Resources\Neutral.png" />
+      <BundleResource Include="Resources\NeutralBKG.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <ITunesArtwork Include="iTunesArtwork%402x" />
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

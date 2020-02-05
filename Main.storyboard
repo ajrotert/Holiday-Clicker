@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11135" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="70" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="11224" firstAttribute="height" constant="40"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="204" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="174.5" y="36" width="65" height="65"/>
+                                <constraints>
+                                    <constraint id="207" firstAttribute="height" constant="65"/>
+                                    <constraint id="208" firstAttribute="width" constant="65"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="CandyButton_TouchUpInside:" destination="BYZ-38-t0r" id="215" eventType="touchUpInside"/>
+                                </connections>
+                                <state key="normal" backgroundImage="Bat.png"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2242" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="334" width="374" height="68"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="44"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="2247" firstAttribute="height" constant="68"/>
+                                </constraints>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5023" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="281" y="686" width="113" height="30"/>
+                                <state key="normal" title="Restart">
+                                    <color key="titleColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.666666666666667" alpha="1"/>
+                                </state>
+                                <constraints>
+                                    <constraint id="5055" firstAttribute="height" constant="30"/>
+                                    <constraint id="5061" firstAttribute="width" constant="113"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="RestartButton_TouchUpInside:" destination="BYZ-38-t0r" id="5094" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5420" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="70" width="40" height="40"/>
+                                <color key="tintColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <constraints>
+                                    <constraint id="5641" firstAttribute="height" constant="40"/>
+                                    <constraint id="5647" firstAttribute="width" constant="40"/>
+                                </constraints>
+                                <connections>
+                                    <segue id="5780" destination="5378" kind="showDetail"/>
+                                </connections>
+                                <state key="normal" backgroundImage="Settings.png" image="Settings.png"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the objects before they reach the bottom." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="18845" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="2">
+                                <rect key="frame" x="20" y="630" width="374" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17" weight="semibold"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="18846" firstAttribute="height" constant="60"/>
+                                </constraints>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="205" firstItem="204" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="36"/>
+                            <constraint id="206" firstItem="204" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="2243" firstItem="2242" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="2244" firstItem="2242" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="2245" firstItem="2242" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="2246" firstItem="2242" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY"/>
+                            <constraint id="5049" firstAttribute="bottom" secondItem="5023" secondAttribute="bottom" constant="20"/>
+                            <constraint id="5067" firstItem="5023" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="5635" firstItem="5420" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="9198" firstItem="5420" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50"/>
+                            <constraint id="11206" firstItem="11135" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="11212" firstItem="11135" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="11218" firstItem="11135" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50"/>
+                            <constraint id="18849" firstItem="18845" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="18850" firstItem="18845" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="18851" firstItem="5023" firstAttribute="centerY" secondItem="18845" secondAttribute="bottom" constant="11"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="MainView" destination="8bC-Xf-vdC" id="name-outlet-8bC-Xf-vdC"/>
+                        <outlet property="CandyButton" destination="204" id="name-outlet-204"/>
+                        <outlet property="ScoreLabel" destination="2242" id="name-outlet-2242"/>
+                        <outlet property="RestartButton" destination="5023" id="name-outlet-5023"/>
+                        <outlet property="SettingsButton" destination="5420" id="name-outlet-5420"/>
+                        <outlet property="HighScoreLabel" destination="11135" id="name-outlet-11135"/>
+                        <outlet property="HelpLabel" destination="18845" id="name-outlet-18845"/>
+                    </connections>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <scene sceneID="5377">
+            <objects>
+                <viewController id="5378" sceneMemberID="viewController" customClass="SettingsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5375"/>
+                        <viewControllerLayoutGuide type="bottom" id="5376"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5379">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.333333333333333" alpha="1"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" id="5787" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="116" width="374" height="504"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Down to Set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="10433" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="26" y="20" width="368" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="10557" firstAttribute="height" constant="52"/>
+                                </constraints>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="15730" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="184" y="685" width="51" height="31"/>
+                                <constraints>
+                                    <constraint id="15737" firstAttribute="height" constant="31"/>
+                                    <constraint id="15738" firstAttribute="width" constant="49"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="Slider_Changed:" destination="5378" id="15792" eventType="valueChanged"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15732" translatesAutoresizingMaskIntoConstraints="NO" text="Viberate: Off/On">
+                                <rect key="frame" x="26" y="628" width="368" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="15733" firstAttribute="height" constant="52"/>
+                                </constraints>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="5808" firstItem="5787" firstAttribute="top" secondItem="5379" secondAttribute="top" constant="116"/>
+                            <constraint id="5824" firstItem="5787" firstAttribute="leading" secondItem="5379" secondAttribute="leadingMargin"/>
+                            <constraint id="5830" firstItem="5376" firstAttribute="top" secondItem="5787" secondAttribute="bottom" constant="116"/>
+                            <constraint id="5836" firstItem="5787" firstAttribute="trailing" secondItem="5379" secondAttribute="trailingMargin"/>
+                            <constraint id="10545" firstItem="10433" firstAttribute="leading" secondItem="5379" secondAttribute="leadingMargin" constant="6"/>
+                            <constraint id="10551" firstItem="10433" firstAttribute="trailing" secondItem="5379" secondAttribute="trailingMargin"/>
+                            <constraint id="15736" firstItem="5376" firstAttribute="top" secondItem="15730" secondAttribute="bottom" constant="20"/>
+                            <constraint id="15739" firstItem="15730" firstAttribute="centerX" secondItem="5379" secondAttribute="centerX" constant="1"/>
+                            <constraint id="15740" firstItem="15730" firstAttribute="top" secondItem="15732" secondAttribute="bottom" constant="5"/>
+                            <constraint id="15741" firstItem="15732" firstAttribute="leading" secondItem="5379" secondAttribute="leadingMargin" constant="6"/>
+                            <constraint id="15742" firstItem="15732" firstAttribute="trailing" secondItem="5379" secondAttribute="trailingMargin"/>
+                            <constraint id="16576" firstItem="10433" firstAttribute="top" secondItem="5375" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="SettingsView" destination="5379" id="name-outlet-5379"/>
+                        <outlet property="PickerViewSelect" destination="5787" id="name-outlet-5787"/>
+                        <outlet property="ViberateSwitch" destination="15730" id="name-outlet-15730"/>
+                        <outlet property="SwitchLabel" destination="15732" id="name-outlet-15732"/>
+                        <outlet property="SwipeLabel" destination="10433" id="name-outlet-10433"/>
+                    </connections>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5380" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="-1"/>
+        </scene>
+        <scene sceneID="7427">
+            <objects>
+                <navigationController id="7428" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7430">
+                        <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="7518" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <nil key="simulatedTopBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7431" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-599" y="-11"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bat.png" width="65" height="65"/>
+        <image name="Settings.png" width="20" height="20"/>
+    </resources>
+</document>
