@@ -16,7 +16,15 @@ namespace Hackathon
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel ActiveItems_Label { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton CandyButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel Collected_Label { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -52,9 +60,19 @@ namespace Hackathon
 
         void ReleaseDesignerOutlets ()
         {
+            if (ActiveItems_Label != null) {
+                ActiveItems_Label.Dispose ();
+                ActiveItems_Label = null;
+            }
+
             if (CandyButton != null) {
                 CandyButton.Dispose ();
                 CandyButton = null;
+            }
+
+            if (Collected_Label != null) {
+                Collected_Label.Dispose ();
+                Collected_Label = null;
             }
 
             if (HelpLabel != null) {

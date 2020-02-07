@@ -35,6 +35,7 @@
                                 </constraints>
                                 <connections>
                                     <action selector="CandyButton_TouchUpInside:" destination="BYZ-38-t0r" id="215" eventType="touchUpInside"/>
+                                    <action selector="CandyButton_TouchUpInside:" destination="BYZ-38-t0r" id="19166" eventType="touchDragInside"/>
                                 </connections>
                                 <state key="normal" backgroundImage="Bat.png"/>
                             </button>
@@ -81,6 +82,24 @@
                                     <constraint id="18846" firstAttribute="height" constant="60"/>
                                 </constraints>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19482" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="118" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="19483" firstAttribute="height" constant="40"/>
+                                </constraints>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collected: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="19813" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="166" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="19814" firstAttribute="height" constant="40"/>
+                                </constraints>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint id="205" firstItem="204" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="36"/>
@@ -99,6 +118,12 @@
                             <constraint id="18849" firstItem="18845" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="18850" firstItem="18845" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                             <constraint id="18851" firstItem="5023" firstAttribute="centerY" secondItem="18845" secondAttribute="bottom" constant="11"/>
+                            <constraint id="19485" firstItem="19482" firstAttribute="top" secondItem="11135" secondAttribute="bottom" constant="8"/>
+                            <constraint id="19486" firstItem="19482" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="19487" firstItem="19482" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="19816" firstItem="19813" firstAttribute="top" secondItem="19482" secondAttribute="bottom" constant="8"/>
+                            <constraint id="19817" firstItem="19813" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="19818" firstItem="19813" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                         </constraints>
                     </view>
                     <connections>
@@ -109,6 +134,8 @@
                         <outlet property="SettingsButton" destination="5420" id="name-outlet-5420"/>
                         <outlet property="HighScoreLabel" destination="11135" id="name-outlet-11135"/>
                         <outlet property="HelpLabel" destination="18845" id="name-outlet-18845"/>
+                        <outlet property="ActiveItems_Label" destination="19482" id="name-outlet-19482"/>
+                        <outlet property="Collected_Label" destination="19813" id="name-outlet-19813"/>
                     </connections>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>

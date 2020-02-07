@@ -28,6 +28,9 @@ namespace Hackathon
         Thread GameThread;
         int GameObjects = 1000;
         int ObjectSpeed = 200;
+        int ActiveItems = 0;
+        int CollectedItems = 0;
+
         UIImpactFeedbackGenerator heavyFeedback;
 
         public override void ViewDidLoad()
@@ -65,7 +68,11 @@ namespace Hackathon
             HelpLabel.Hidden = !(settings.Help);
             r = new Random();
             score = 0;
+            CollectedItems = 0;
+            ActiveItems = 0;
             ScoreLabel.Text = "Score: " + score;
+            Collected_Label.Text = "Collected: " + CollectedItems;
+            ActiveItems_Label.Text = "Active: " + ActiveItems;
             ended = false;
             ObjectSpeed = 200;
             rect = new CGRect(CandyButton.Frame.X, CandyButton.Frame.Y, CandyButton.Frame.Width, CandyButton.Frame.Height);
@@ -153,6 +160,11 @@ namespace Hackathon
             {
                 Thread thread = new Thread(DropButton);
                 thread.Start();
+                ActiveItems++;
+                InvokeOnMainThread(delegate
+                {
+                    ActiveItems_Label.Text = "Active: " + ActiveItems;
+                });
                 Thread.Sleep(GameObjects);
             }
             InvokeOnMainThread(delegate
@@ -167,9 +179,10 @@ namespace Hackathon
             UIButton button = null;
             InvokeOnMainThread(delegate
         {
-            button = new UIButton(rect);
-            button.SetBackgroundImage(UIImage.FromFile(falling), UIControlState.Normal);
-            button.TouchDragInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
+        button = new UIButton(rect);
+        button.SetBackgroundImage(UIImage.FromFile(falling), UIControlState.Normal);
+        button.TouchDragInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
+        button.TouchUpInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
             button.Center = CandyButton.Center;
             View.AddSubview(button);
         });
@@ -211,6 +224,12 @@ namespace Hackathon
                 lside2 = button.Frame.Left;
                 rside2 = button.Frame.Right;
 
+                if(!button.Hidden)
+                {
+                    ActiveItems--;
+                    ActiveItems_Label.Text = "Active: " + ActiveItems;
+                }
+                
                 if (!button.Hidden && rside2 > lside && lside2 < rside)
                 {
                     ended = true;
@@ -221,7 +240,10 @@ namespace Hackathon
                         settings.HighScore = score;
                         DatabaseManagement.UpdateData();
                     }
+                    ActiveItems = 0;
+                    ActiveItems_Label.Text = "Active: " + ActiveItems;
                 }
+
             });
         }
 
@@ -243,6 +265,13 @@ namespace Hackathon
             int a = r.Next(25);
             score += a;
             ScoreLabel.Text = "Score: " + score;
+            if (!sender.Hidden)
+            {
+                CollectedItems++;
+                Collected_Label.Text = "Collected: " + CollectedItems;
+                ActiveItems--;
+                ActiveItems_Label.Text = "Active: " + ActiveItems;
+            }
             sender.Hidden = true;
         }
 
