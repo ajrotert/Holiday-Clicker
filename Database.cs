@@ -45,7 +45,7 @@ namespace Hackathon
             newData.Stored_SelectedMonth = settings.SelectedMonth;
             newData.Stored_Help = settings.Help;
 
-            Console.WriteLine("Viberate: {0}  High Score: {1}  Selected Month: {2}", settings.Viberate, settings.HighScore, settings.SelectedMonth);
+            Console.WriteLine("Viberate: {0}  High Score: {1}  Selected Month: {2}  Help: {3}", settings.Viberate, settings.HighScore, settings.SelectedMonth, settings.Help);
 
             db.Insert(newData);
 
@@ -66,12 +66,13 @@ namespace Hackathon
                 {
                     foreach(var s in table)
                     {
-                    Console.WriteLine("Viberate: {0}  High Score: {1}  Selected Month: {2}", s.Stored_Viberate, s.Stored_HighScore, s.Stored_SelectedMonth);
-                    settings.SelectedMonth = s.Stored_SelectedMonth;
-                    settings.Viberate = s.Stored_Viberate;
-                    settings.HighScore = s.Stored_HighScore;
-                    settings.Help = s.Stored_Help;
-                    Console.WriteLine("Accessing entry");
+
+                        Console.WriteLine("Viberate: {0}  High Score: {1}  Selected Month: {2}  Help: {3}", s.Stored_Viberate, s.Stored_HighScore, s.Stored_SelectedMonth, s.Stored_Help);
+                        settings.SelectedMonth = s.Stored_SelectedMonth;
+                        settings.Viberate = s.Stored_Viberate;
+                        settings.HighScore = s.Stored_HighScore;
+                        settings.Help = s.Stored_Help;
+                        Console.WriteLine("Accessing entry");
                     }
                 }
                 else

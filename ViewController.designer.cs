@@ -36,6 +36,14 @@ namespace Hackathon
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel LevelLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel LevelUpLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView MainView { get; set; }
 
         [Outlet]
@@ -83,6 +91,16 @@ namespace Hackathon
             if (HighScoreLabel != null) {
                 HighScoreLabel.Dispose ();
                 HighScoreLabel = null;
+            }
+
+            if (LevelLabel != null) {
+                LevelLabel.Dispose ();
+                LevelLabel = null;
+            }
+
+            if (LevelUpLabel != null) {
+                LevelUpLabel.Dispose ();
+                LevelUpLabel = null;
             }
 
             if (MainView != null) {

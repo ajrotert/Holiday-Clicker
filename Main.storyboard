@@ -16,7 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.333333333333333" alpha="1"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11135" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="20" y="70" width="374" height="40"/>
@@ -50,8 +50,11 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5023" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="281" y="686" width="113" height="30"/>
+                                <size key="titleShadowOffset" width="1" height="0"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
                                 <state key="normal" title="Restart">
                                     <color key="titleColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.666666666666667" alpha="1"/>
+                                    <color key="titleShadowColor" systemColor="systemGroupedBackgroundColor" colorSpace="custom" customColorSpace="sRGB" red="0.949019607843137" green="0.949019607843137" blue="0.968627450980392" alpha="1"/>
                                 </state>
                                 <constraints>
                                     <constraint id="5055" firstAttribute="height" constant="30"/>
@@ -60,6 +63,11 @@
                                 <connections>
                                     <action selector="RestartButton_TouchUpInside:" destination="BYZ-38-t0r" id="5094" eventType="touchUpInside"/>
                                 </connections>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5420" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="20" y="70" width="40" height="40"/>
@@ -100,6 +108,24 @@
                                     <constraint id="19814" firstAttribute="height" constant="40"/>
                                 </constraints>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="20676" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="214" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="20677" firstAttribute="height" constant="40"/>
+                                </constraints>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="25539" translatesAutoresizingMaskIntoConstraints="NO" alpha="0.0">
+                                <rect key="frame" x="20" y="262" width="374" height="68"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="44"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="25540" firstAttribute="height" constant="68"/>
+                                </constraints>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint id="205" firstItem="204" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="36"/>
@@ -124,6 +150,12 @@
                             <constraint id="19816" firstItem="19813" firstAttribute="top" secondItem="19482" secondAttribute="bottom" constant="8"/>
                             <constraint id="19817" firstItem="19813" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="19818" firstItem="19813" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="20679" firstItem="20676" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="20680" firstItem="20676" firstAttribute="top" secondItem="19813" secondAttribute="bottom" constant="8"/>
+                            <constraint id="20681" firstItem="20676" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="25542" firstItem="25539" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
+                            <constraint id="25543" firstItem="25539" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
+                            <constraint id="25544" firstItem="2242" firstAttribute="top" secondItem="25539" secondAttribute="bottom" constant="4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -136,6 +168,8 @@
                         <outlet property="HelpLabel" destination="18845" id="name-outlet-18845"/>
                         <outlet property="ActiveItems_Label" destination="19482" id="name-outlet-19482"/>
                         <outlet property="Collected_Label" destination="19813" id="name-outlet-19813"/>
+                        <outlet property="LevelLabel" destination="20676" id="name-outlet-20676"/>
+                        <outlet property="LevelUpLabel" destination="25539" id="name-outlet-25539"/>
                     </connections>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>

@@ -19,10 +19,11 @@ namespace Hackathon
         {
         }
 
+        //Default values
         public Random r;
         public int score;
         public bool ended;
-        public CGRect rect;// = new CGRect(CandyButton.Frame.X, CandyButton.Frame.Y + ychange, CandyButton.Frame.Width, CandyButton.Frame.Height);
+        public CGRect rect;
         string background = "HalloweenBKG.png";
         string falling = "Bat.png";
         Thread GameThread;
@@ -30,6 +31,7 @@ namespace Hackathon
         int ObjectSpeed = 200;
         int ActiveItems = 0;
         int CollectedItems = 0;
+        int level = 0;
 
         UIImpactFeedbackGenerator heavyFeedback;
 
@@ -37,23 +39,14 @@ namespace Hackathon
         {
             base.ViewDidLoad();
 
-            /*
-            //Load value from database
-            settings.SelectedMonth = 0;
-            //Load High Score from database
-            HighScoreLabel.Text += settings.HighScore;
-            //Load state from database
-            settings.Viberate = true;
-            */
-
+            //Settings are loaded from database, and set
             DatabaseManagement.SetSettings();
             HighScoreLabel.Text += settings.HighScore;
 
             start();
         }
         private void start()
-        {
-            //View.BackgroundColor = UIColor.FromPatternImage(UIImage.FromFile(background));
+        { //Sets default game values, and updates labels. 
             SetBackground();
             RestartButton.Hidden = true;
             // Perform any additional setup after loading the view, typically from a nib.
@@ -64,21 +57,27 @@ namespace Hackathon
             }
             else
                 settings.Help = false;
-            //Could update database here, but eh
+
             HelpLabel.Hidden = !(settings.Help);
             r = new Random();
+            level = 1;
             score = 0;
             CollectedItems = 0;
             ActiveItems = 0;
             ScoreLabel.Text = "Score: " + score;
             Collected_Label.Text = "Collected: " + CollectedItems;
             ActiveItems_Label.Text = "Active: " + ActiveItems;
+            LevelUpLabelUpdate();
+
             ended = false;
-            ObjectSpeed = 200;
+
+            ObjectSpeed = Decay();
+
             rect = new CGRect(CandyButton.Frame.X, CandyButton.Frame.Y, CandyButton.Frame.Width, CandyButton.Frame.Height);
             CandyButton.Hidden = true;
             heavyFeedback = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
             heavyFeedback.Prepare();
+
             GameThread = new Thread(Game);
             GameThread.Start();
         }
@@ -155,7 +154,7 @@ namespace Hackathon
             View.BackgroundColor = UIColor.FromPatternImage(UIImage.FromFile(background));
         }
         public void Game()
-        {
+        { //Main game thread, used to generate falling objects
             while (!ended)
             {
                 Thread thread = new Thread(DropButton);
@@ -166,6 +165,7 @@ namespace Hackathon
                     ActiveItems_Label.Text = "Active: " + ActiveItems;
                 });
                 Thread.Sleep(GameObjects);
+                LevelCheck();
             }
             InvokeOnMainThread(delegate
             {
@@ -175,17 +175,17 @@ namespace Hackathon
         }
 
         internal void DropButton()
-        {
+        { //Handles falling objects, objects move randomly until their bounds are outside the phones frame. 
             UIButton button = null;
             InvokeOnMainThread(delegate
-        {
-        button = new UIButton(rect);
-        button.SetBackgroundImage(UIImage.FromFile(falling), UIControlState.Normal);
-        button.TouchDragInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
-        button.TouchUpInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
-            button.Center = CandyButton.Center;
-            View.AddSubview(button);
-        });
+            {
+                button = new UIButton(rect);
+                button.SetBackgroundImage(UIImage.FromFile(falling), UIControlState.Normal);
+                button.TouchDragInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
+                button.TouchUpInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
+                button.Center = CandyButton.Center;
+                View.AddSubview(button);
+            });
 
             nfloat bottom1 = 0, bottom2 = 0, lside=0, rside=0, lside2=0, rside2=0;
 
@@ -205,15 +205,14 @@ namespace Hackathon
                     xchange *= -1;
                 InvokeOnMainThread(delegate
                 {
-                    //CGPoint pt = CandyButton.Center;
-                    CGRect Loc_rect = new CGRect(button.Frame.X + xchange, button.Frame.Y + ychange, button.Frame.Width, button.Frame.Height);
 
+                CGRect Loc_rect = new CGRect(button.Frame.X + xchange, button.Frame.Y + ychange, button.Frame.Width, button.Frame.Height);
+
+                UIView.Animate(0.5, options: UIViewAnimationOptions.AllowUserInteraction, animation: () => {
                     button.Frame = Loc_rect;
                     button.UpdateConstraints();
-                    //CandyButton.RemoveFromSuperview();
-                    //CGRect rect = new CGRect(CandyButton.Bounds.X, CandyButton.Bounds.Y + ychange, CandyButton.Bounds.Width, CandyButton.Bounds.Height);
-                    //CandyButton.Center = pt;
-                    //View.AddSubview(CandyButton);
+                }, completion: () => { }, delay: 0);
+
                     bottom2 = button.Frame.Top;
                  });
                 Thread.Sleep(x);
@@ -224,11 +223,8 @@ namespace Hackathon
                 lside2 = button.Frame.Left;
                 rside2 = button.Frame.Right;
 
-                if(!button.Hidden)
-                {
                     ActiveItems--;
                     ActiveItems_Label.Text = "Active: " + ActiveItems;
-                }
                 
                 if (!button.Hidden && rside2 > lside && lside2 < rside)
                 {
@@ -240,8 +236,6 @@ namespace Hackathon
                         settings.HighScore = score;
                         DatabaseManagement.UpdateData();
                     }
-                    ActiveItems = 0;
-                    ActiveItems_Label.Text = "Active: " + ActiveItems;
                 }
 
             });
@@ -255,93 +249,57 @@ namespace Hackathon
         }
 
         partial void CandyButton_TouchUpInside(UIButton sender)
-        {
+        { //Called when falling objects are clicked, called repeatedly when objects are click and dragged. 
             try
             {
                 if(settings.Viberate)
                     heavyFeedback.ImpactOccurred();
             }
             catch { Console.WriteLine("Vibrate not supported"); }
-            int a = r.Next(25);
+            int a = r.Next(40);
             score += a;
             ScoreLabel.Text = "Score: " + score;
             if (!sender.Hidden)
             {
                 CollectedItems++;
                 Collected_Label.Text = "Collected: " + CollectedItems;
-                ActiveItems--;
-                ActiveItems_Label.Text = "Active: " + ActiveItems;
             }
             sender.Hidden = true;
         }
 
-        /*partial void TestingChanged(UISlider sender)
-        {
-            int month = (int)TestingSlider.Value;
-            if(month==1)
-            {
-                background = "NewYearBKG.png";
-                falling = "FireworksNY.png";
-            }
-            else if(month==2)
-            {
-                background = "ValentinesBKG.png";
-                falling = "Chocolates.png";
-            }
-            else if (month == 3)
-            {
-                background = "STPatrickBKG.png";
-                falling = "Leprechaun.png";
-            }
-            else if (month == 4)
-            {
-                background = "EasterBKG.png";
-                falling = "Bunny.png";
-            }
-            else if (month == 5)
-            {
-                background = "MemorialDayBKG.png";
-                falling = "BulletCase.png";
-            }
-            else if (month == 6)
-            {
-                background = "SummerBKG.png";
-                falling = "Sunglasses.png";
-            }
-            else if (month == 7)
-            {
-                background = "IndependenceDay.png";
-                falling = "Flag.png";
-            }
-            else if (month == 8)
-            {
-                background = "BackToSchoolBKG.png";
-                falling = "Bus.png";
-            }
-            else if (month == 9)
-            {
-                background = "LaborDayBKG.png";
-                falling = "Hammer.png";
-            }
-            else if (month == 10)
-            {
-                background = "HalloweenBKG.png";
-                falling = "Bat.png";
-            }
-            else if (month == 11)
-            {
-                background = "ThanksgivingBKG.png";
-                falling = "Turkey.png";
-            }
-            else if (month == 12)
-            {
-                background = "ChristmasBKG.png";
-                falling = "Present.png";
-            }
-            View.BackgroundColor = UIColor.FromPatternImage(UIImage.FromFile(background));
+        private int Decay()
+        { //Exponential decay function used to calculate falling objects speed. 
+            double x = (Math.Pow(0.95, level) * 400) + 50;
+            return Convert.ToInt32(x);
         }
-        */
+        private void LevelCheck()
+        { //Used to check and update users current level.
+            int x = score / 1000;
 
+            if(x > level)
+            {
+                level = x;
+                ObjectSpeed = Decay();
+                LevelUpLabelUpdate();
+                LevelUp();
+            }
+        }
+        private void LevelUp()
+        { //Animates level up for the user. 
+            InvokeOnMainThread(delegate
+            {
+                LevelUpLabel.Alpha = 1;
+                UIView.AnimateAsync(2, animation: () => { LevelUpLabel.Alpha = 0; });
+            });
+
+        }
+        private void LevelUpLabelUpdate()
+        { //Updates side level label.
+            InvokeOnMainThread(delegate
+            {
+                LevelLabel.Text = "Level: " + level;
+            });
+        }
         partial void RestartButton_TouchUpInside(UIButton sender)
         {
             GameThread.Abort();
