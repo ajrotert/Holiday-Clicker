@@ -67,6 +67,7 @@ namespace Hackathon
             ScoreLabel.Text = "Score: " + score;
             Collected_Label.Text = "Collected: " + CollectedItems;
             ActiveItems_Label.Text = "Active: " + ActiveItems;
+
             LevelUpLabelUpdate();
 
             ended = false;
