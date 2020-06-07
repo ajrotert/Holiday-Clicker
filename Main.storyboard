@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7428">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -126,6 +126,18 @@
                                     <constraint id="25540" firstAttribute="height" constant="68"/>
                                 </constraints>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" lineBreakMode="middleTruncation" id="26935" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="372" y="50" width="22" height="22"/>
+                                <color key="tintColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <state key="normal"/>
+                                <constraints>
+                                    <constraint id="26945" firstAttribute="height" constant="22"/>
+                                    <constraint id="26946" firstAttribute="width" constant="22"/>
+                                </constraints>
+                                <connections>
+                                    <segue id="27161" destination="25902" kind="presentation" identifier="InstructionSeuge" modalPresentationStyle="overCurrentContext"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="205" firstItem="204" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="36"/>
@@ -156,6 +168,8 @@
                             <constraint id="25542" firstItem="25539" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin"/>
                             <constraint id="25543" firstItem="25539" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                             <constraint id="25544" firstItem="2242" firstAttribute="top" secondItem="25539" secondAttribute="bottom" constant="4"/>
+                            <constraint id="26951" firstItem="26935" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50"/>
+                            <constraint id="26952" firstItem="26935" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin"/>
                         </constraints>
                     </view>
                     <connections>
@@ -170,6 +184,7 @@
                         <outlet property="Collected_Label" destination="19813" id="name-outlet-19813"/>
                         <outlet property="LevelLabel" destination="20676" id="name-outlet-20676"/>
                         <outlet property="LevelUpLabel" destination="25539" id="name-outlet-25539"/>
+                        <outlet property="InfoButton" destination="26935" id="name-outlet-26935"/>
                     </connections>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
@@ -252,7 +267,7 @@
         </scene>
         <scene sceneID="7427">
             <objects>
-                <navigationController id="7428" sceneMemberID="viewController">
+                <navigationController id="7428" sceneMemberID="viewController" customClass="NavigationController" navigationBarHidden="YES">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7430">
                         <rect key="frame" x="0.0" y="20" width="414" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -266,9 +281,157 @@
             </objects>
             <point key="canvasLocation" x="-599" y="-11"/>
         </scene>
+        <scene sceneID="25901">
+            <objects>
+                <viewController id="25902" sceneMemberID="viewController" customClass="InstructionViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="25899"/>
+                        <viewControllerLayoutGuide type="bottom" id="25900"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="25903">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0.333333333333333" alpha="1"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26328" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="20" width="374" height="68"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="44"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="26329" firstAttribute="height" constant="68"/>
+                                </constraints>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="26414" translatesAutoresizingMaskIntoConstraints="NO" image="helpme">
+                                <rect key="frame" x="87" y="193" width="240" height="403"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the falling objects" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26422" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                <rect key="frame" x="20" y="92" width="374" height="93"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reach New Levels" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26430" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="193" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="26431" firstAttribute="height" constant="40"/>
+                                </constraints>
+                                <color key="shadowColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set New High Scores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26433" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="233" width="374" height="116"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0" alpha="1"/>
+                                <size key="shadowOffset" width="-1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock New Content" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26436" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="556" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <constraints>
+                                    <constraint id="26437" firstAttribute="height" constant="40"/>
+                                </constraints>
+                                <color key="shadowColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Object Speed Increases" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26440" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="348" width="374" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                                <constraints>
+                                    <constraint id="26441" firstAttribute="height" constant="40"/>
+                                </constraints>
+                                <color key="shadowColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0" alpha="1"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26444" translatesAutoresizingMaskIntoConstraints="NO" text="Collect Objects">
+                                <rect key="frame" x="20" y="387" width="374" height="173"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <size key="shadowOffset" width="-1" height="1"/>
+                                <color key="shadowColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="0" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26476" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" text="Change Themes in Settings">
+                                <rect key="frame" x="20" y="604" width="374" height="112"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20" weight="heavy"/>
+                                <color key="textColor" systemColor="systemPurpleColor" colorSpace="custom" customColorSpace="sRGB" red="0.686274509803922" green="0.32156862745098" blue="0.870588235294118" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="35874" translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" alpha="0.0">
+                                <rect key="frame" x="36" y="0.0" width="338" height="736"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <state key="normal" title="Press Her To Start"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="26331" firstItem="26328" firstAttribute="top" secondItem="25903" secondAttribute="top" constant="20"/>
+                            <constraint id="26332" firstItem="26328" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26333" firstItem="26328" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26415" firstItem="26414" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin" constant="67"/>
+                            <constraint id="26416" firstAttribute="trailingMargin" secondItem="26414" secondAttribute="trailing" constant="67"/>
+                            <constraint id="26419" firstItem="26414" firstAttribute="top" secondItem="26328" secondAttribute="bottom" constant="105"/>
+                            <constraint id="26420" firstAttribute="bottom" secondItem="26414" secondAttribute="bottom" constant="140"/>
+                            <constraint id="26425" firstItem="26422" firstAttribute="top" secondItem="26328" secondAttribute="bottom" constant="4"/>
+                            <constraint id="26426" firstItem="26422" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26427" firstItem="26422" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26428" firstItem="26414" firstAttribute="top" secondItem="26422" secondAttribute="bottom" constant="8"/>
+                            <constraint id="26449" firstItem="26436" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26450" firstItem="26436" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26451" firstItem="26436" firstAttribute="bottom" secondItem="26414" secondAttribute="bottom"/>
+                            <constraint id="26452" firstItem="26430" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26453" firstItem="26430" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26454" firstItem="26430" firstAttribute="top" secondItem="26414" secondAttribute="top"/>
+                            <constraint id="26457" firstItem="26440" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26458" firstItem="26440" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26459" firstItem="26414" firstAttribute="centerY" secondItem="26440" secondAttribute="centerY" constant="26"/>
+                            <constraint id="26460" firstItem="26433" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26461" firstItem="26433" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26462" firstItem="26433" firstAttribute="top" secondItem="26430" secondAttribute="bottom"/>
+                            <constraint id="26463" firstItem="26433" firstAttribute="bottom" secondItem="26440" secondAttribute="top" constant="1"/>
+                            <constraint id="26464" firstItem="26433" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26465" firstItem="26433" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26466" firstItem="26440" firstAttribute="bottom" secondItem="26444" secondAttribute="top" constant="1"/>
+                            <constraint id="26469" firstItem="26444" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26470" firstItem="26444" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26471" firstItem="26444" firstAttribute="bottom" secondItem="26436" secondAttribute="top" constant="4"/>
+                            <constraint id="26477" firstItem="26476" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin"/>
+                            <constraint id="26478" firstItem="26476" firstAttribute="trailing" secondItem="25903" secondAttribute="trailingMargin"/>
+                            <constraint id="26479" firstAttribute="bottom" secondItem="26476" secondAttribute="bottom" constant="20"/>
+                            <constraint id="26480" firstItem="26476" firstAttribute="top" secondItem="26436" secondAttribute="bottom" constant="8"/>
+                            <constraint id="35875" firstItem="35874" firstAttribute="top" secondItem="25903" secondAttribute="top"/>
+                            <constraint id="35876" firstItem="35874" firstAttribute="bottom" secondItem="25903" secondAttribute="bottom"/>
+                            <constraint id="35877" firstItem="35874" firstAttribute="leading" secondItem="25903" secondAttribute="leadingMargin" constant="16"/>
+                            <constraint id="35878" firstAttribute="trailingMargin" secondItem="35874" secondAttribute="trailing" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="InstructionLabel" destination="26328" id="name-outlet-26328"/>
+                        <outlet property="helpme" destination="26414" id="name-outlet-26414"/>
+                        <outlet property="ObjectsLabel" destination="26422" id="name-outlet-26422"/>
+                        <outlet property="LevelUpLabel" destination="26430" id="name-outlet-26430"/>
+                        <outlet property="CollectObjects" destination="26444" id="name-outlet-26444"/>
+                        <outlet property="ObjectSpeed" destination="26440" id="name-outlet-26440"/>
+                        <outlet property="UnlockLabel" destination="26436" id="name-outlet-26436"/>
+                        <outlet property="HighscoresLabel" destination="26433" id="name-outlet-26433"/>
+                        <outlet property="SettingsLabel" destination="26476" id="name-outlet-26476"/>
+                        <outlet property="InstructionView" destination="25903" id="name-outlet-25903"/>
+                        <outlet property="buttons" destination="35874" id="name-outlet-35874"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25904" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="-877"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Bat.png" width="65" height="65"/>
         <image name="Settings.png" width="20" height="20"/>
+        <image name="helpme" width="840" height="1539"/>
     </resources>
 </document>

@@ -36,6 +36,10 @@ namespace Hackathon
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton InfoButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LevelLabel { get; set; }
 
         [Outlet]
@@ -91,6 +95,11 @@ namespace Hackathon
             if (HighScoreLabel != null) {
                 HighScoreLabel.Dispose ();
                 HighScoreLabel = null;
+            }
+
+            if (InfoButton != null) {
+                InfoButton.Dispose ();
+                InfoButton = null;
             }
 
             if (LevelLabel != null) {

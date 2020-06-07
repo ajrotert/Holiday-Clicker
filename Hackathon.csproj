@@ -100,9 +100,91 @@
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_152.png" />
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_40-2.png" />
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\HClicker_40.png" />
+        <ImageAsset Include="Assets.xcassets\BackToSchoolBKG.imageset\BackToSchoolBKG.png" />
+        <ImageAsset Include="Assets.xcassets\BackToSchoolBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\BackToSchoolBKG.imageset\BackToSchoolBKG-1.png" />
+        <ImageAsset Include="Assets.xcassets\Bat.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\BulletCase.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Bunny.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Bus.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Chocolates.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ChristmasBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\EasterBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\FireworksNY.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Flag.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\HalloweenBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Hammer.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\IndependenceDay.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\LaborDayBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Leprechaun.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\MemorialDayBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Neutral.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\NeutralBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\NewYearBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Present.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\STPatrickBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\SummerBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Sunglasses.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ThanksgivingBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Turkey.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\ValentinesBKG.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\Bat.imageset\Bat.png" />
+        <ImageAsset Include="Assets.xcassets\BulletCase.imageset\BulletCase.png" />
+        <ImageAsset Include="Assets.xcassets\Bunny.imageset\Bunny.png" />
+        <ImageAsset Include="Assets.xcassets\Bus.imageset\Bus.png" />
+        <ImageAsset Include="Assets.xcassets\Chocolates.imageset\Chocolates.png" />
+        <ImageAsset Include="Assets.xcassets\ChristmasBKG.imageset\ChristmasBKG.png" />
+        <ImageAsset Include="Assets.xcassets\EasterBKG.imageset\EasterBKG.png" />
+        <ImageAsset Include="Assets.xcassets\FireworksNY.imageset\FireworksNY.png" />
+        <ImageAsset Include="Assets.xcassets\Flag.imageset\Flag.png" />
+        <ImageAsset Include="Assets.xcassets\HalloweenBKG.imageset\HalloweenBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Hammer.imageset\Hammer.png" />
+        <ImageAsset Include="Assets.xcassets\IndependenceDay.imageset\IndependenceDay.png" />
+        <ImageAsset Include="Assets.xcassets\LaborDayBKG.imageset\LaborDayBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Leprechaun.imageset\Leprechaun.png" />
+        <ImageAsset Include="Assets.xcassets\MemorialDayBKG.imageset\MemorialDayBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Neutral.imageset\Neutral.png" />
+        <ImageAsset Include="Assets.xcassets\NeutralBKG.imageset\NeutralBKG.png" />
+        <ImageAsset Include="Assets.xcassets\NewYearBKG.imageset\NewYearBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Present.imageset\Present.png" />
+        <ImageAsset Include="Assets.xcassets\STPatrickBKG.imageset\STPatrickBKG.png" />
+        <ImageAsset Include="Assets.xcassets\SummerBKG.imageset\SummerBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Sunglasses.imageset\Sunglasses.png" />
+        <ImageAsset Include="Assets.xcassets\ThanksgivingBKG.imageset\ThanksgivingBKG.png" />
+        <ImageAsset Include="Assets.xcassets\Turkey.imageset\Turkey.png" />
+        <ImageAsset Include="Assets.xcassets\ValentinesBKG.imageset\ValentinesBKG.png" />
+        <ImageAsset Include="Assets.xcassets\helpme.imageset\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\helpme.imageset\helpmenue.png" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
+        <Folder Include="Assets.xcassets\BackToSchoolBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Bat.imageset\" />
+        <Folder Include="Assets.xcassets\BulletCase.imageset\" />
+        <Folder Include="Assets.xcassets\Bunny.imageset\" />
+        <Folder Include="Assets.xcassets\Bus.imageset\" />
+        <Folder Include="Assets.xcassets\Chocolates.imageset\" />
+        <Folder Include="Assets.xcassets\ChristmasBKG.imageset\" />
+        <Folder Include="Assets.xcassets\EasterBKG.imageset\" />
+        <Folder Include="Assets.xcassets\FireworksNY.imageset\" />
+        <Folder Include="Assets.xcassets\Flag.imageset\" />
+        <Folder Include="Assets.xcassets\HalloweenBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Hammer.imageset\" />
+        <Folder Include="Assets.xcassets\IndependenceDay.imageset\" />
+        <Folder Include="Assets.xcassets\LaborDayBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Leprechaun.imageset\" />
+        <Folder Include="Assets.xcassets\MemorialDayBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Neutral.imageset\" />
+        <Folder Include="Assets.xcassets\NeutralBKG.imageset\" />
+        <Folder Include="Assets.xcassets\NewYearBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Present.imageset\" />
+        <Folder Include="Assets.xcassets\STPatrickBKG.imageset\" />
+        <Folder Include="Assets.xcassets\SummerBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Sunglasses.imageset\" />
+        <Folder Include="Assets.xcassets\ThanksgivingBKG.imageset\" />
+        <Folder Include="Assets.xcassets\Turkey.imageset\" />
+        <Folder Include="Assets.xcassets\ValentinesBKG.imageset\" />
+        <Folder Include="Assets.xcassets\helpme.imageset\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -125,36 +207,18 @@
           <DependentUpon>SettingsViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Database.cs" />
+        <Compile Include="InstructionViewController.cs" />
+        <Compile Include="InstructionViewController.designer.cs">
+          <DependentUpon>InstructionViewController.cs</DependentUpon>
+        </Compile>
+        <Compile Include="NavigationController.cs" />
+        <Compile Include="NavigationController.designer.cs">
+          <DependentUpon>NavigationController.cs</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
-      <BundleResource Include="Resources\Hammer.png" />
-      <BundleResource Include="Resources\HalloweenBKG.png" />
-      <BundleResource Include="Resources\Bat.png" />
-      <BundleResource Include="Resources\Present.png" />
-      <BundleResource Include="Resources\Turkey.png" />
-      <BundleResource Include="Resources\ThanksgivingBKG.png" />
-      <BundleResource Include="Resources\ChristmasBKG.png" />
-      <BundleResource Include="Resources\NewYearBKG.png" />
-      <BundleResource Include="Resources\FireworksNY.png" />
-      <BundleResource Include="Resources\ValentinesBKG.png" />
-      <BundleResource Include="Resources\Chocolates.png" />
-      <BundleResource Include="Resources\MemorialDayBKG.png" />
-      <BundleResource Include="Resources\Bunny.png" />
-      <BundleResource Include="Resources\EasterBKG.png" />
-      <BundleResource Include="Resources\Leprechaun.png" />
-      <BundleResource Include="Resources\STPatrickBKG.png" />
-      <BundleResource Include="Resources\BulletCase.png" />
-      <BundleResource Include="Resources\SummerBKG.png" />
-      <BundleResource Include="Resources\Sunglasses.png" />
-      <BundleResource Include="Resources\IndependenceDay.png" />
-      <BundleResource Include="Resources\Flag.png" />
-      <BundleResource Include="Resources\LaborDayBKG.png" />
-      <BundleResource Include="Resources\Bus.png" />
-      <BundleResource Include="Resources\BackToSchoolBKG.png" />
       <BundleResource Include="Resources\LoadingLogo7COLLAB.png" />
       <BundleResource Include="Resources\Settings.png" />
-      <BundleResource Include="Resources\Neutral.png" />
-      <BundleResource Include="Resources\NeutralBKG.png" />
     </ItemGroup>
     <ItemGroup>
       <ITunesArtwork Include="iTunesArtwork%402x" />

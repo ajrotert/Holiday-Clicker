@@ -24,14 +24,15 @@ namespace Hackathon
         public int score;
         public bool ended;
         public CGRect rect;
-        string background = "HalloweenBKG.png";
-        string falling = "Bat.png";
+        UIImage background = UIImage.FromBundle("HalloweenBKG");
+        UIImage falling = UIImage.FromBundle("Bat");
         Thread GameThread;
         int GameObjects = 1000;
         int ObjectSpeed = 200;
         int ActiveItems = 0;
         int CollectedItems = 0;
         int level = 0;
+        public static bool isStarted;
 
         UIImpactFeedbackGenerator heavyFeedback;
 
@@ -42,6 +43,19 @@ namespace Hackathon
             //Settings are loaded from database, and set
             DatabaseManagement.SetSettings();
             HighScoreLabel.Text += settings.HighScore;
+
+        }
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            if (settings.Help)
+            {
+                PerformSegue("InstructionSeuge", new NSObject());
+            }
+            else
+            {
+                isStarted = true;
+            }
 
             start();
         }
@@ -89,84 +103,87 @@ namespace Hackathon
                 month = DateTime.Now.Date.Month;
             if (month == 1)
             {
-                background = "NewYearBKG.png";
-                falling = "FireworksNY.png";
+                background = UIImage.FromBundle("NewYearBKG");
+                falling = UIImage.FromBundle("FireworksNY");
             }
             else if (month == 2)
             {
-                background = "ValentinesBKG.png";
-                falling = "Chocolates.png";
+                background = UIImage.FromBundle("ValentinesBKG");
+                falling = UIImage.FromBundle("Chocolates");
             }
             else if (month == 3)
             {
-                background = "STPatrickBKG.png";
-                falling = "Leprechaun.png";
+                background = UIImage.FromBundle("STPatrickBKG");
+                falling = UIImage.FromBundle("Leprechaun");
             }
             else if (month == 4)
             {
-                background = "EasterBKG.png";
-                falling = "Bunny.png";
+                background = UIImage.FromBundle("EasterBKG");
+                falling = UIImage.FromBundle("Bunny");
             }
             else if (month == 5)
             {
-                background = "MemorialDayBKG.png";
-                falling = "BulletCase.png";
+                background = UIImage.FromBundle("MemorialDayBKG");
+                falling = UIImage.FromBundle("BulletCase");
             }
             else if (month == 6)
             {
-                background = "SummerBKG.png";
-                falling = "Sunglasses.png";
+                background = UIImage.FromBundle("SummerBKG");
+                falling = UIImage.FromBundle("Sunglasses");
             }
             else if (month == 7)
             {
-                background = "IndependenceDay.png";
-                falling = "Flag.png";
+                background = UIImage.FromBundle("IndependenceDay");
+                falling = UIImage.FromBundle("Flag");
             }
             else if (month == 8)
             {
-                background = "BackToSchoolBKG.png";
-                falling = "Bus.png";
+                background = UIImage.FromBundle("BackToSchoolBKG");
+                falling = UIImage.FromBundle("Bus");
             }
             else if (month == 9)
             {
-                background = "LaborDayBKG.png";
-                falling = "Hammer.png";
+                background = UIImage.FromBundle("LaborDayBKG");
+                falling = UIImage.FromBundle("Hammer");
             }
             else if (month == 10)
             {
-                background = "HalloweenBKG.png";
-                falling = "Bat.png";
+                background = UIImage.FromBundle("HalloweenBKG");
+                falling = UIImage.FromBundle("Bat");
             }
             else if (month == 11)
             {
-                background = "ThanksgivingBKG.png";
-                falling = "Turkey.png";
+                background = UIImage.FromBundle("ThanksgivingBKG");
+                falling = UIImage.FromBundle("Turkey");
             }
             else if (month == 12)
             {
-                background = "ChristmasBKG.png";
-                falling = "Present.png";
+                background = UIImage.FromBundle("ChristmasBKG");
+                falling = UIImage.FromBundle("Present");
             }
             else if (month == 13)
             {
-                background = "NeutralBKG.png";
-                falling = "Neutral.png";
+                background = UIImage.FromBundle("NeutralBKG");
+                falling = UIImage.FromBundle("Neutral");
             }
-            View.BackgroundColor = UIColor.FromPatternImage(UIImage.FromFile(background));
+            View.BackgroundColor = UIColor.FromPatternImage(background);
         }
         public void Game()
         { //Main game thread, used to generate falling objects
             while (!ended)
             {
-                Thread thread = new Thread(DropButton);
-                thread.Start();
-                ActiveItems++;
-                InvokeOnMainThread(delegate
+                if (isStarted)
                 {
-                    ActiveItems_Label.Text = "Active: " + ActiveItems;
-                });
-                Thread.Sleep(GameObjects);
-                LevelCheck();
+                    Thread thread = new Thread(DropButton);
+                    thread.Start();
+                    ActiveItems++;
+                    InvokeOnMainThread(delegate
+                    {
+                        ActiveItems_Label.Text = "Active: " + ActiveItems;
+                    });
+                    Thread.Sleep(GameObjects);
+                    LevelCheck();
+                }
             }
             InvokeOnMainThread(delegate
             {
@@ -181,7 +198,7 @@ namespace Hackathon
             InvokeOnMainThread(delegate
             {
                 button = new UIButton(rect);
-                button.SetBackgroundImage(UIImage.FromFile(falling), UIControlState.Normal);
+                button.SetBackgroundImage(falling, UIControlState.Normal);
                 button.TouchDragInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
                 button.TouchUpInside += (sender, e) => CandyButton_TouchUpInside((UIButton)sender);
                 button.Center = CandyButton.Center;
@@ -201,22 +218,27 @@ namespace Hackathon
 
             while (bottom1 > bottom2)
             {
-                int ychange = r.Next(25), x = r.Next(ObjectSpeed), xchange = r.Next(75), neg = r.Next(2);
-                if (neg == 0)
-                    xchange *= -1;
-                InvokeOnMainThread(delegate
+                if (isStarted)
                 {
 
-                CGRect Loc_rect = new CGRect(button.Frame.X + xchange, button.Frame.Y + ychange, button.Frame.Width, button.Frame.Height);
+                    int ychange = r.Next(25), x = r.Next(ObjectSpeed), xchange = r.Next(75), neg = r.Next(2);
+                    if (neg == 0)
+                        xchange *= -1;
+                    InvokeOnMainThread(delegate
+                    {
 
-                UIView.Animate(0.5, options: UIViewAnimationOptions.AllowUserInteraction, animation: () => {
-                    button.Frame = Loc_rect;
-                    button.UpdateConstraints();
-                }, completion: () => { }, delay: 0);
+                        CGRect Loc_rect = new CGRect(button.Frame.X + xchange, button.Frame.Y + ychange, button.Frame.Width, button.Frame.Height);
 
-                    bottom2 = button.Frame.Top;
-                 });
-                Thread.Sleep(x);
+                        UIView.Animate(0.5, options: UIViewAnimationOptions.AllowUserInteraction, animation: () => {
+                            button.Frame = Loc_rect;
+                            button.UpdateConstraints();
+                        }, completion: () => { }, delay: 0);
+
+                        bottom2 = button.Frame.Top;
+                    });
+                    Thread.Sleep(x);
+                }
+
             }
             Console.WriteLine("Ended");
             InvokeOnMainThread(delegate
@@ -235,6 +257,11 @@ namespace Hackathon
                     {
                         HighScoreLabel.Text = "High Score: " + score;
                         settings.HighScore = score;
+                        DatabaseManagement.UpdateData();
+                    }
+                    if(settings.Help && settings.HighScore > 100)
+                    {
+                        settings.Help = false;
                         DatabaseManagement.UpdateData();
                     }
                 }
